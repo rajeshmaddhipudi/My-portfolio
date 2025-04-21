@@ -93,7 +93,7 @@ const Contact: React.FC<ContactProps> = ({ isDarkTheme }) => {
                             isDarkTheme ? 'text-gray-200 hover:text-[#9F7AEA]' : 'text-gray-800 hover:text-blue-600'
                           }`}
                         >
-                          Rajeshmaddhipudi@gmail.com
+                          rajeshmaddhipudi@gmail.com
                         </a>
                       </div>
                     </div>
@@ -107,12 +107,12 @@ const Contact: React.FC<ContactProps> = ({ isDarkTheme }) => {
                       <div>
                         <p className={isDarkTheme ? 'text-gray-400' : 'text-gray-600'}>Phone</p>
                         <a 
-                          href="tel:+919876543210"
+                          href="tel:+4915901409064"
                           className={`font-medium ${
                             isDarkTheme ? 'text-gray-200 hover:text-[#9F7AEA]' : 'text-gray-800 hover:text-blue-600'
                           }`}
                         >
-                          +91 98765 43210
+                          +4915901409064
                         </a>
                       </div>
                     </div>
@@ -128,7 +128,7 @@ const Contact: React.FC<ContactProps> = ({ isDarkTheme }) => {
                         <p className={`font-medium ${
                           isDarkTheme ? 'text-gray-200' : 'text-gray-800'
                         }`}>
-                          Hyderabad, India
+                            Mönchengladbach, Germany
                         </p>
                       </div>
                     </div>

@@ -252,7 +252,11 @@ function AppContent() {
     <div className={`min-h-screen ${isDarkTheme ? 'dark-theme' : 'light-theme'}`} ref={parallaxRef}>
       <ScrollToTop />
       {/* Desktop Navigation */}
-      <nav className={`fixed top-0 left-0 h-screen w-64 ${isDarkTheme ? 'bg-[#2D2B36]/80' : 'bg-white/80'} backdrop-blur-md hidden md:flex flex-col p-6 z-50`}>
+      <nav className={`fixed top-0 left-0 h-screen w-64 ${
+        isDarkTheme 
+          ? 'bg-[#2D2B36]/80' 
+          : 'bg-white/80 border-r border-gray-100 shadow-[4px_0_24px_-8px_rgba(0,0,0,0.1)]'
+      } backdrop-blur-md hidden md:flex flex-col p-6 z-50`}>
         <div className="flex justify-between items-center mb-8">
           <h1 className={`text-2xl font-bold ${isDarkTheme ? 'text-white' : 'text-gradient'}`}>Rajesh</h1>
           <button
@@ -270,56 +274,56 @@ function AppContent() {
         <div className="space-y-4">
           <Link 
             to="/"
-            className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
+            className={`block w-full text-left px-4 py-2 rounded-lg transition-all ${
               location.pathname === '/' 
                 ? isDarkTheme 
                   ? 'bg-[#1E1B26] text-[#9F7AEA]' 
-                  : 'bg-blue-50 text-blue-600'
+                  : 'bg-blue-50 text-blue-600 shadow-sm'
                 : isDarkTheme
                   ? 'text-gray-300 hover:bg-[#1E1B26] hover:text-[#9F7AEA]'
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-blue-600'
+                  : 'text-gray-600 hover:bg-gray-50 hover:text-blue-600 hover:shadow-sm'
             }`}
           >
             About
           </Link>
           <Link 
             to="/resume"
-            className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
+            className={`block w-full text-left px-4 py-2 rounded-lg transition-all ${
               location.pathname === '/resume'
                 ? isDarkTheme 
                   ? 'bg-[#1E1B26] text-[#9F7AEA]' 
-                  : 'bg-blue-50 text-blue-600'
+                  : 'bg-blue-50 text-blue-600 shadow-sm'
                 : isDarkTheme
                   ? 'text-gray-300 hover:bg-[#1E1B26] hover:text-[#9F7AEA]'
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-blue-600'
+                  : 'text-gray-600 hover:bg-gray-50 hover:text-blue-600 hover:shadow-sm'
             }`}
           >
             Resume
           </Link>
           <Link
             to="/skills"
-            className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
+            className={`block w-full text-left px-4 py-2 rounded-lg transition-all ${
               location.pathname === '/skills'
                 ? isDarkTheme 
                   ? 'bg-[#1E1B26] text-[#9F7AEA]' 
-                  : 'bg-blue-50 text-blue-600'
+                  : 'bg-blue-50 text-blue-600 shadow-sm'
                 : isDarkTheme
                   ? 'text-gray-300 hover:bg-[#1E1B26] hover:text-[#9F7AEA]'
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-blue-600'
+                  : 'text-gray-600 hover:bg-gray-50 hover:text-blue-600 hover:shadow-sm'
             }`}
           >
             Skills
           </Link>
           <Link 
             to="/contact"
-            className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
+            className={`block w-full text-left px-4 py-2 rounded-lg transition-all ${
               location.pathname === '/contact'
                 ? isDarkTheme 
                   ? 'bg-[#1E1B26] text-[#9F7AEA]' 
-                  : 'bg-blue-50 text-blue-600'
+                  : 'bg-blue-50 text-blue-600 shadow-sm'
                 : isDarkTheme
                   ? 'text-gray-300 hover:bg-[#1E1B26] hover:text-[#9F7AEA]'
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-blue-600'
+                  : 'text-gray-600 hover:bg-gray-50 hover:text-blue-600 hover:shadow-sm'
             }`}
           >
             Contact
@@ -328,7 +332,11 @@ function AppContent() {
       </nav>
 
       {/* Mobile Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 ${isDarkTheme ? 'bg-[#2D2B36]/80' : 'bg-white/80'} backdrop-blur-md md:hidden`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 ${
+        isDarkTheme 
+          ? 'bg-[#2D2B36]/80' 
+          : 'bg-white/80 border-b border-gray-100 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.1)]'
+      } backdrop-blur-md md:hidden`}>
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className={`text-xl font-bold ${isDarkTheme ? 'text-white' : 'text-gradient'}`}>
             Rajesh Maddhipudi
