@@ -35,64 +35,67 @@ const Skills: React.FC<SkillsProps> = ({ isDarkTheme, skillsData }) => {
   return (
     <div className={`${isDarkTheme ? 'dark-theme' : 'light-theme'} md:pl-64`}>
       <div className="min-h-screen">
-        <div className="container mx-auto px-4 py-16 md:py-32">
+        <div className="container mx-auto px-4 py-8 md:py-16">
           <div className="max-w-6xl mx-auto">
             <div className="pt-16 md:pt-0">
-              <h1 className={`section-heading text-center ${
-                isDarkTheme 
-                  ? 'text-[#9F7AEA]' 
-                  : 'text-gradient'
-              }`}>
-                Skills & Expertise
-              </h1>
-              <p className={`section-subheading text-center max-w-2xl mx-auto ${
-                isDarkTheme ? 'text-gray-400' : 'text-gray-600'
-              }`}>
-                A comprehensive overview of my technical capabilities
-              </p>
+              {/* Header Section */}
+              <div className="text-center mb-12">
+                <h1 className={`text-3xl md:text-4xl font-medium tracking-tight mb-4 ${
+                  isDarkTheme 
+                    ? 'text-[#9F7AEA]' 
+                    : 'text-gradient'
+                }`}>
+                  Skills & Expertise
+                </h1>
+                <p className={`text-base md:text-lg max-w-2xl mx-auto ${
+                  isDarkTheme ? 'text-gray-400' : 'text-gray-600'
+                }`}>
+                  A comprehensive overview of my technical capabilities
+                </p>
+              </div>
               
               {/* Technical Skills */}
-              <div className="mb-24 space-y-16">
+              <div className="space-y-12 md:space-y-16">
                 {/* Frontend Development */}
                 <div>
-                  <h2 className={`text-2xl font-semibold mb-8 flex items-center gap-3 ${
+                  <h2 className={`text-xl md:text-2xl font-semibold mb-6 flex items-center gap-3 ${
                     isDarkTheme ? 'text-[#9F7AEA]' : 'text-blue-600'
                   }`}>
                     <Code2 className={isDarkTheme ? 'text-[#9F7AEA]' : 'text-blue-600'} />
                     Frontend Development
                   </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className={`glass-card rounded-xl p-6`}>
-                      <h3 className={`card-heading ${
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    <div className={`glass-card rounded-xl p-4 md:p-6`}>
+                      <h3 className={`text-lg font-medium mb-3 ${
                         isDarkTheme ? 'text-gray-300' : 'text-gray-800'
                       }`}>Languages</h3>
                       <div className="flex flex-wrap gap-2">
                         {skillsData.technical.frontend.languages.map((lang, index) => (
-                          <span key={index} className="skill-tag">
+                          <span key={index} className="skill-tag text-sm">
                             {lang}
                           </span>
                         ))}
                       </div>
                     </div>
-                    <div className={`glass-card rounded-xl p-6`}>
-                      <h3 className={`card-heading ${
+                    <div className={`glass-card rounded-xl p-4 md:p-6`}>
+                      <h3 className={`text-lg font-medium mb-3 ${
                         isDarkTheme ? 'text-gray-300' : 'text-gray-800'
                       }`}>Frameworks</h3>
                       <div className="flex flex-wrap gap-2">
                         {skillsData.technical.frontend.frameworks.map((framework, index) => (
-                          <span key={index} className="skill-tag">
+                          <span key={index} className="skill-tag text-sm">
                             {framework}
                           </span>
                         ))}
                       </div>
                     </div>
-                    <div className={`glass-card rounded-xl p-6`}>
-                      <h3 className={`card-heading ${
+                    <div className={`glass-card rounded-xl p-4 md:p-6 sm:col-span-2 lg:col-span-1`}>
+                      <h3 className={`text-lg font-medium mb-3 ${
                         isDarkTheme ? 'text-gray-300' : 'text-gray-800'
                       }`}>Tools</h3>
                       <div className="flex flex-wrap gap-2">
                         {skillsData.technical.frontend.tooling.map((tool, index) => (
-                          <span key={index} className="skill-tag">
+                          <span key={index} className="skill-tag text-sm">
                             {tool}
                           </span>
                         ))}
@@ -103,32 +106,32 @@ const Skills: React.FC<SkillsProps> = ({ isDarkTheme, skillsData }) => {
 
                 {/* Backend Development */}
                 <div>
-                  <h2 className={`text-2xl font-semibold mb-8 flex items-center gap-3 ${
+                  <h2 className={`text-xl md:text-2xl font-semibold mb-6 flex items-center gap-3 ${
                     isDarkTheme ? 'text-[#9F7AEA]' : 'text-blue-600'
                   }`}>
                     <Server className={isDarkTheme ? 'text-[#9F7AEA]' : 'text-blue-600'} />
                     Backend Development
                   </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className={`glass-card rounded-xl p-6`}>
-                      <h3 className={`card-heading ${
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                    <div className={`glass-card rounded-xl p-4 md:p-6`}>
+                      <h3 className={`text-lg font-medium mb-3 ${
                         isDarkTheme ? 'text-gray-300' : 'text-gray-800'
                       }`}>Core Technologies</h3>
                       <div className="flex flex-wrap gap-2">
                         {[...skillsData.technical.backend.languages, ...skillsData.technical.backend.frameworks].map((tech, index) => (
-                          <span key={index} className="skill-tag">
+                          <span key={index} className="skill-tag text-sm">
                             {tech}
                           </span>
                         ))}
                       </div>
                     </div>
-                    <div className={`glass-card rounded-xl p-6`}>
-                      <h3 className={`card-heading ${
+                    <div className={`glass-card rounded-xl p-4 md:p-6`}>
+                      <h3 className={`text-lg font-medium mb-3 ${
                         isDarkTheme ? 'text-gray-300' : 'text-gray-800'
                       }`}>Architecture & Systems</h3>
                       <div className="flex flex-wrap gap-2">
                         {[...skillsData.technical.backend.messaging, ...skillsData.technical.backend.architecture].map((item, index) => (
-                          <span key={index} className="skill-tag">
+                          <span key={index} className="skill-tag text-sm">
                             {item}
                           </span>
                         ))}
@@ -139,32 +142,32 @@ const Skills: React.FC<SkillsProps> = ({ isDarkTheme, skillsData }) => {
 
                 {/* Databases & DevOps */}
                 <div>
-                  <h2 className={`text-2xl font-semibold mb-8 flex items-center gap-3 ${
+                  <h2 className={`text-xl md:text-2xl font-semibold mb-6 flex items-center gap-3 ${
                     isDarkTheme ? 'text-[#9F7AEA]' : 'text-blue-600'
                   }`}>
                     <Database className={isDarkTheme ? 'text-[#9F7AEA]' : 'text-blue-600'} />
                     Infrastructure & Data
                   </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className={`glass-card rounded-xl p-6`}>
-                      <h3 className={`card-heading ${
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                    <div className={`glass-card rounded-xl p-4 md:p-6`}>
+                      <h3 className={`text-lg font-medium mb-3 ${
                         isDarkTheme ? 'text-gray-300' : 'text-gray-800'
                       }`}>Databases</h3>
                       <div className="flex flex-wrap gap-2">
                         {[...skillsData.technical.databases.relational, ...skillsData.technical.databases.nosql].map((db, index) => (
-                          <span key={index} className="skill-tag">
+                          <span key={index} className="skill-tag text-sm">
                             {db}
                           </span>
                         ))}
                       </div>
                     </div>
-                    <div className={`glass-card rounded-xl p-6`}>
-                      <h3 className={`card-heading ${
+                    <div className={`glass-card rounded-xl p-4 md:p-6`}>
+                      <h3 className={`text-lg font-medium mb-3 ${
                         isDarkTheme ? 'text-gray-300' : 'text-gray-800'
                       }`}>DevOps & Cloud</h3>
                       <div className="flex flex-wrap gap-2">
                         {skillsData.technical.devops.map((tool, index) => (
-                          <span key={index} className="skill-tag">
+                          <span key={index} className="skill-tag text-sm">
                             {tool}
                           </span>
                         ))}
@@ -175,20 +178,20 @@ const Skills: React.FC<SkillsProps> = ({ isDarkTheme, skillsData }) => {
               </div>
               
               {/* Soft Skills */}
-              <div>
-                <h2 className={`text-2xl font-semibold mb-8 flex items-center gap-3 ${
+              <div className="mt-12 md:mt-16">
+                <h2 className={`text-xl md:text-2xl font-semibold mb-6 flex items-center gap-3 ${
                   isDarkTheme ? 'text-[#9F7AEA]' : 'text-blue-600'
                 }`}>
                   <Users className={isDarkTheme ? 'text-[#9F7AEA]' : 'text-blue-600'} />
                   Professional Skills
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                   {skillsData.soft.map((skill, index) => (
-                    <div key={index} className={`glass-card rounded-xl p-6`}>
-                      <h3 className={`card-heading ${
+                    <div key={index} className={`glass-card rounded-xl p-4 md:p-6`}>
+                      <h3 className={`text-lg font-medium mb-2 ${
                         isDarkTheme ? 'text-gray-300' : 'text-gray-800'
                       }`}>{skill.title}</h3>
-                      <p className={isDarkTheme ? 'text-gray-400' : 'text-gray-600'}>
+                      <p className={`text-sm md:text-base ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>
                         {skill.description}
                       </p>
                     </div>

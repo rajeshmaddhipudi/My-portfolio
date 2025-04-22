@@ -36,16 +36,16 @@ const Resume: React.FC<ResumeProps> = ({
   education 
 }) => {
   return (
-    <div className={`${isDarkTheme ? 'dark-theme' : 'light-theme'} md:pl-64 font-inter`}>
+    <div className={`${isDarkTheme ? 'dark-theme' : 'light-theme'} md:pl-64`}>
       <div className="min-h-screen">
         <div className="container mx-auto px-4 py-8 max-w-4xl">
           <div className="pt-16 md:pt-0">
             {/* Intro Section */}
-            <div className="mb-12">
+            <div className="mb-8 md:mb-12">
               <div className={`flex items-center justify-between mb-4 rounded-lg p-4 ${
                 isDarkTheme ? 'bg-[#2D2B36]' : 'bg-gray-50'
               }`}>
-                <h2 className={`text-3xl font-medium tracking-tight ${
+                <h2 className={`text-2xl md:text-3xl font-medium tracking-tight ${
                   isDarkTheme 
                     ? 'text-[#9F7AEA]' 
                     : 'text-gradient'
@@ -63,8 +63,8 @@ const Resume: React.FC<ResumeProps> = ({
                 </button>
               </div>
               {expandedSections.intro && (
-                <div className="glass-card rounded-xl p-6">
-                  <p className={`text-base leading-relaxed font-normal ${isDarkTheme ? 'text-gray-300' : 'text-gray-600'}`}>
+                <div className="glass-card rounded-xl p-4 md:p-6">
+                  <p className={`text-sm md:text-base leading-relaxed ${isDarkTheme ? 'text-gray-300' : 'text-gray-600'}`}>
                     I am a passionate software developer seeking a new challenge. I specialize in front-end & serverless backend-development using Typescript, React.js, and Node.js. As an advocate for web performance, accessibility, I create amazing web applications to improve the internet. I love encountering hard-to-solve-problems and approach them with patience, determination, and relentless perseverance.
                   </p>
                 </div>
@@ -72,11 +72,11 @@ const Resume: React.FC<ResumeProps> = ({
             </div>
             
             {/* Experience Timeline */}
-            <div className="mb-12">
-              <div className={`flex items-center justify-between mb-8 rounded-lg p-4 ${
+            <div className="mb-8 md:mb-12">
+              <div className={`flex items-center justify-between mb-6 rounded-lg p-4 ${
                 isDarkTheme ? 'bg-[#2D2B36]' : 'bg-gray-50'
               }`}>
-                <h2 className={`text-3xl font-medium tracking-tight ${
+                <h2 className={`text-2xl md:text-3xl font-medium tracking-tight ${
                   isDarkTheme 
                     ? 'text-[#9F7AEA]' 
                     : 'text-gradient'
@@ -95,18 +95,18 @@ const Resume: React.FC<ResumeProps> = ({
               </div>
               {expandedSections.experience && (
                 <div className="relative">
-                  <div className="space-y-8">
+                  <div className="space-y-6 md:space-y-8">
                     {experiences.map((exp, index) => (
-                      <div key={index} className="relative flex">
-                        {/* Date on the left */}
-                        <div className="w-[100px] md:w-[140px] flex-shrink-0 text-right">
+                      <div key={index} className="relative flex flex-col md:flex-row">
+                        {/* Date on the left - Hidden on mobile, shown above content */}
+                        <div className="md:w-[140px] md:flex-shrink-0 mb-2 md:mb-0">
                           <h3 className={`text-sm font-medium tracking-wide ${
                             isDarkTheme ? 'text-[#9F7AEA]' : 'text-blue-600'
-                          }`}>{exp.period}</h3>
+                          } md:text-right`}>{exp.period}</h3>
                         </div>
 
                         {/* Timeline Dot and Line */}
-                        <div className="relative mx-4 md:mx-6 flex-shrink-0">
+                        <div className="hidden md:block relative mx-6 flex-shrink-0">
                           {/* Vertical line segment */}
                           {index !== experiences.length - 1 && (
                             <div className={`absolute left-[11px] top-[24px] w-[2px] h-[calc(100%+32px)] ${
@@ -126,17 +126,17 @@ const Resume: React.FC<ResumeProps> = ({
                         </div>
                         
                         {/* Content */}
-                        <div className="flex-grow pb-8">
-                          <div className="glass-card rounded-xl p-6">
+                        <div className="flex-grow pb-6 md:pb-8">
+                          <div className="glass-card rounded-xl p-4 md:p-6">
                             {exp.roles ? (
                               // Multiple roles in same company
                               <>
-                                <div className="flex justify-between items-center mb-6">
-                                  <span className={`text-xl font-medium tracking-tight ${
+                                <div className="flex justify-between items-center mb-4 md:mb-6">
+                                  <span className={`text-lg md:text-xl font-medium tracking-tight ${
                                     isDarkTheme ? 'text-gray-200' : 'text-gray-800'
                                   }`}>{exp.company}</span>
                                 </div>
-                                <div className="space-y-6">
+                                <div className="space-y-4 md:space-y-6">
                                   {exp.roles.map((role, roleIndex) => (
                                     <div key={roleIndex} className={`relative pl-4 ${
                                       isDarkTheme ? 'border-l-2 border-gray-700' : 'border-l-2 border-blue-100'
@@ -146,8 +146,8 @@ const Resume: React.FC<ResumeProps> = ({
                                           ? 'bg-[#2D2B36] border-2 border-gray-700' 
                                           : 'bg-blue-50 border-2 border-blue-200'
                                       }`}></div>
-                                      <div className="flex justify-between items-center mb-2">
-                                        <h3 className={`text-lg font-medium tracking-tight ${
+                                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 md:gap-4 mb-2">
+                                        <h3 className={`text-base md:text-lg font-medium tracking-tight ${
                                           isDarkTheme ? 'text-gray-300' : 'text-gray-800'
                                         }`}>{role.title}</h3>
                                         <span className={`text-sm font-medium tracking-wide ${
@@ -157,8 +157,8 @@ const Resume: React.FC<ResumeProps> = ({
                                       <ul className="space-y-2">
                                         {role.points.map((point, pointIndex) => (
                                           <li key={pointIndex} className="flex items-start gap-2">
-                                            <span className={isDarkTheme ? 'text-[#9F7AEA]' : 'text-blue-500'}>•</span>
-                                            <p className={`text-base leading-relaxed font-normal ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>{point}</p>
+                                            <span className={`mt-1.5 ${isDarkTheme ? 'text-[#9F7AEA]' : 'text-blue-500'}`}>•</span>
+                                            <p className={`text-sm md:text-base leading-relaxed ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>{point}</p>
                                           </li>
                                         ))}
                                       </ul>
@@ -169,8 +169,8 @@ const Resume: React.FC<ResumeProps> = ({
                             ) : (
                               // Single role
                               <>
-                                <div className="flex justify-between items-center mb-4">
-                                  <h3 className={`text-lg font-medium tracking-tight ${
+                                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 md:gap-4 mb-4">
+                                  <h3 className={`text-base md:text-lg font-medium tracking-tight ${
                                     isDarkTheme ? 'text-gray-200' : 'text-gray-800'
                                   }`}>{exp.title}</h3>
                                   <span className={`text-sm font-medium tracking-wide ${
@@ -180,8 +180,8 @@ const Resume: React.FC<ResumeProps> = ({
                                 <ul className="space-y-2">
                                   {exp.points?.map((point, pointIndex) => (
                                     <li key={pointIndex} className="flex items-start gap-2">
-                                      <span className={isDarkTheme ? 'text-[#9F7AEA]' : 'text-blue-500'}>•</span>
-                                      <p className={`text-base leading-relaxed font-normal ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>{point}</p>
+                                      <span className={`mt-1.5 ${isDarkTheme ? 'text-[#9F7AEA]' : 'text-blue-500'}`}>•</span>
+                                      <p className={`text-sm md:text-base leading-relaxed ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>{point}</p>
                                     </li>
                                   ))}
                                 </ul>
@@ -197,11 +197,11 @@ const Resume: React.FC<ResumeProps> = ({
             </div>
 
             {/* Education Section */}
-            <div className="mb-12">
-              <div className={`flex items-center justify-between mb-8 rounded-lg p-4 ${
+            <div className="mb-8 md:mb-12">
+              <div className={`flex items-center justify-between mb-6 rounded-lg p-4 ${
                 isDarkTheme ? 'bg-[#2D2B36]' : 'bg-gray-50'
               }`}>
-                <h2 className={`text-3xl font-medium tracking-tight ${
+                <h2 className={`text-2xl md:text-3xl font-medium tracking-tight ${
                   isDarkTheme 
                     ? 'text-[#9F7AEA]' 
                     : 'text-gradient'
@@ -220,18 +220,18 @@ const Resume: React.FC<ResumeProps> = ({
               </div>
               {expandedSections.education && (
                 <div className="relative">
-                  <div className="space-y-8">
+                  <div className="space-y-6 md:space-y-8">
                     {education.map((edu, index) => (
-                      <div key={index} className="relative flex">
+                      <div key={index} className="relative flex flex-col md:flex-row">
                         {/* Year on the left */}
-                        <div className="w-[100px] md:w-[140px] flex-shrink-0 text-right">
+                        <div className="md:w-[140px] md:flex-shrink-0 mb-2 md:mb-0">
                           <h3 className={`text-sm font-medium tracking-wide ${
                             isDarkTheme ? 'text-[#9F7AEA]' : 'text-blue-600'
-                          }`}>{edu.year}</h3>
+                          } md:text-right`}>{edu.year}</h3>
                         </div>
 
                         {/* Timeline Dot and Line */}
-                        <div className="relative mx-4 md:mx-6 flex-shrink-0">
+                        <div className="hidden md:block relative mx-6 flex-shrink-0">
                           {/* Vertical line segment */}
                           {index !== education.length - 1 && (
                             <div className={`absolute left-[11px] top-[24px] w-[2px] h-[calc(100%+32px)] ${
@@ -251,18 +251,18 @@ const Resume: React.FC<ResumeProps> = ({
                         </div>
                         
                         {/* Content */}
-                        <div className="flex-grow pb-8">
-                          <div className="glass-card rounded-xl p-6">
+                        <div className="flex-grow pb-6 md:pb-8">
+                          <div className="glass-card rounded-xl p-4 md:p-6">
                             <div className="flex flex-col gap-1">
-                              <h3 className={`text-lg font-medium tracking-tight ${
+                              <h3 className={`text-base md:text-lg font-medium tracking-tight ${
                                 isDarkTheme ? 'text-gray-200' : 'text-gray-800'
                               }`}>{edu.degree}</h3>
-                              <div className="flex items-center gap-2">
-                                <span className={`text-base font-normal ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>
+                              <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                                <span className={`text-sm md:text-base ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>
                                   {edu.institution}
                                 </span>
-                                <span className={isDarkTheme ? 'text-gray-600' : 'text-gray-400'}>•</span>
-                                <span className={`text-base font-normal ${isDarkTheme ? 'text-gray-500' : 'text-gray-500'}`}>
+                                <span className={`hidden md:inline ${isDarkTheme ? 'text-gray-600' : 'text-gray-400'}`}>•</span>
+                                <span className={`text-sm md:text-base ${isDarkTheme ? 'text-gray-500' : 'text-gray-500'}`}>
                                   {edu.location}
                                 </span>
                               </div>

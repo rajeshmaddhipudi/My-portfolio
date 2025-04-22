@@ -532,9 +532,14 @@ function AppContent() {
                           </Link>
                         </div>
                         <div className="flex gap-6 justify-center md:justify-start animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-                          <a href="https://www.linkedin.com/in/rajesh-maddhipudi-232618a5/" className={`transition-colors transform hover:scale-110 duration-300 button-hover ${
-                            isDarkTheme ? 'text-gray-300 hover:text-[#9F7AEA]' : 'text-gray-700 hover:text-blue-500'
-                          }`}>
+                          <a 
+                            href="https://www.linkedin.com/in/rajesh-maddhipudi-232618a5/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className={`transition-colors transform hover:scale-110 duration-300 button-hover ${
+                              isDarkTheme ? 'text-gray-300 hover:text-[#9F7AEA]' : 'text-gray-700 hover:text-blue-500'
+                            }`}
+                          >
                             <Linkedin size={28} />
                           </a>
                           <a href="mailto:rajeshmaddhipudi@gmail.com" className={`transition-colors transform hover:scale-110 duration-300 button-hover ${

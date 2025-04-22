@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 interface ContactProps {
   isDarkTheme: boolean;
@@ -35,15 +38,15 @@ const Contact: React.FC<ContactProps> = ({ isDarkTheme }) => {
 
     try {
       await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        serviceId,
+        templateId,
         {
-          from_name: formData.name,
-          from_email: formData.email,
+          name: formData.name,
+          email: formData.email,
           subject: formData.subject,
           message: formData.message,
         },
-        'YOUR_PUBLIC_KEY'
+        publicKey
       );
 
       setStatus({
