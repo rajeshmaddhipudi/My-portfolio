@@ -1,5 +1,6 @@
 import React from 'react';
 import { Code2, Server, Database, Users } from 'lucide-react';
+import { Icon } from '@iconify/react';
 
 interface SkillsProps {
   isDarkTheme: boolean;
@@ -32,6 +33,78 @@ interface SkillsProps {
 }
 
 const Skills: React.FC<SkillsProps> = ({ isDarkTheme, skillsData }) => {
+  // Icon mapping for technical skills
+  const getSkillIcon = (skill: string) => {
+    const iconMap: { [key: string]: string } = {
+      // Frontend Languages
+      'HTML': 'vscode-icons:file-type-html',
+      'CSS': 'vscode-icons:file-type-css',
+      'JavaScript': 'vscode-icons:file-type-js',
+      'TypeScript': 'vscode-icons:file-type-typescript',
+      
+      // Frontend Frameworks
+      'React.js': 'vscode-icons:file-type-reactjs',
+      'Next.js': 'vscode-icons:file-type-nextjs',
+      'Tailwind CSS': 'vscode-icons:file-type-tailwind',
+      'Zustand': 'simple-icons:zustand',
+      'Redux': 'vscode-icons:file-type-redux',
+      'React Query': 'simple-icons:reactquery',
+      'Jest': 'vscode-icons:file-type-jest',
+      
+      // Frontend Tooling
+      'Webpack': 'vscode-icons:file-type-webpack',
+      'Vite': 'vscode-icons:file-type-vite',
+      'Chrome DevTools': 'simple-icons:googlechrome',
+      
+      // Backend Languages
+      'Node.js': 'vscode-icons:file-type-node',
+      'C#': 'vscode-icons:file-type-csharp',
+      'Python': 'vscode-icons:file-type-python',
+      
+      // Backend Frameworks
+      'NestJS': 'vscode-icons:file-type-nestjs',
+      
+      // Messaging
+      'Kafka': 'simple-icons:apachekafka',
+      
+      // Architecture
+      'REST APIs': 'simple-icons:rest',
+      'Microservices': 'simple-icons:microservices',
+      'Event-Driven Systems': 'simple-icons:eventstore',
+      
+      // Databases
+      'PostgreSQL': 'vscode-icons:file-type-pgsql',
+      'Oracle DB': 'simple-icons:oracle',
+      'SQL': 'vscode-icons:file-type-sql',
+      'MongoDB': 'vscode-icons:file-type-mongo',
+      
+      // DevOps
+      'Docker': 'vscode-icons:file-type-docker',
+      'AWS': 'vscode-icons:file-type-aws',
+      'Firebase': 'vscode-icons:file-type-firebase',
+      'Netlify': 'vscode-icons:file-type-netlify',
+      'Azure Artifacts': 'simple-icons:azureartifacts',
+      'JFrog': 'simple-icons:jfrog',
+      'GitHub Actions': 'simple-icons:githubactions',
+      'Git': 'vscode-icons:file-type-git',
+      'NPM': 'vscode-icons:file-type-npm',
+      'Yarn': 'vscode-icons:file-type-yarn',
+      
+      // Tools
+      'VS Code': 'vscode-icons:file-type-vscode',
+      'Postman': 'vscode-icons:file-type-postman',
+      'Figma': 'vscode-icons:file-type-figma',
+      'GitHub': 'vscode-icons:file-type-github',
+      'MS Office': 'simple-icons:microsoftoffice',
+      'DevTools': 'simple-icons:googlechrome',
+      'Jira': 'vscode-icons:file-type-jira',
+      'Confluence': 'simple-icons:confluence',
+      'Azure DevOps': 'simple-icons:azuredevops'
+    };
+
+    return iconMap[skill] || 'mdi:code-braces';
+  };
+
   return (
     <div className={`${isDarkTheme ? 'dark-theme' : 'light-theme'} md:pl-64`}>
       <div className="min-h-screen">
@@ -71,7 +144,8 @@ const Skills: React.FC<SkillsProps> = ({ isDarkTheme, skillsData }) => {
                       }`}>Languages</h3>
                       <div className="flex flex-wrap gap-2">
                         {skillsData.technical.frontend.languages.map((lang, index) => (
-                          <span key={index} className="skill-tag text-sm">
+                          <span key={index} className="skill-tag text-sm flex items-center gap-1">
+                            <Icon icon={getSkillIcon(lang)} className="w-4 h-4" />
                             {lang}
                           </span>
                         ))}
@@ -83,7 +157,8 @@ const Skills: React.FC<SkillsProps> = ({ isDarkTheme, skillsData }) => {
                       }`}>Frameworks</h3>
                       <div className="flex flex-wrap gap-2">
                         {skillsData.technical.frontend.frameworks.map((framework, index) => (
-                          <span key={index} className="skill-tag text-sm">
+                          <span key={index} className="skill-tag text-sm flex items-center gap-1">
+                            <Icon icon={getSkillIcon(framework)} className="w-4 h-4" />
                             {framework}
                           </span>
                         ))}
@@ -95,7 +170,8 @@ const Skills: React.FC<SkillsProps> = ({ isDarkTheme, skillsData }) => {
                       }`}>Tools</h3>
                       <div className="flex flex-wrap gap-2">
                         {skillsData.technical.frontend.tooling.map((tool, index) => (
-                          <span key={index} className="skill-tag text-sm">
+                          <span key={index} className="skill-tag text-sm flex items-center gap-1">
+                            <Icon icon={getSkillIcon(tool)} className="w-4 h-4" />
                             {tool}
                           </span>
                         ))}
@@ -119,7 +195,8 @@ const Skills: React.FC<SkillsProps> = ({ isDarkTheme, skillsData }) => {
                       }`}>Core Technologies</h3>
                       <div className="flex flex-wrap gap-2">
                         {[...skillsData.technical.backend.languages, ...skillsData.technical.backend.frameworks].map((tech, index) => (
-                          <span key={index} className="skill-tag text-sm">
+                          <span key={index} className="skill-tag text-sm flex items-center gap-1">
+                            <Icon icon={getSkillIcon(tech)} className="w-4 h-4" />
                             {tech}
                           </span>
                         ))}
@@ -131,7 +208,8 @@ const Skills: React.FC<SkillsProps> = ({ isDarkTheme, skillsData }) => {
                       }`}>Architecture & Systems</h3>
                       <div className="flex flex-wrap gap-2">
                         {[...skillsData.technical.backend.messaging, ...skillsData.technical.backend.architecture].map((item, index) => (
-                          <span key={index} className="skill-tag text-sm">
+                          <span key={index} className="skill-tag text-sm flex items-center gap-1">
+                            <Icon icon={getSkillIcon(item)} className="w-4 h-4" />
                             {item}
                           </span>
                         ))}
@@ -155,7 +233,8 @@ const Skills: React.FC<SkillsProps> = ({ isDarkTheme, skillsData }) => {
                       }`}>Databases</h3>
                       <div className="flex flex-wrap gap-2">
                         {[...skillsData.technical.databases.relational, ...skillsData.technical.databases.nosql].map((db, index) => (
-                          <span key={index} className="skill-tag text-sm">
+                          <span key={index} className="skill-tag text-sm flex items-center gap-1">
+                            <Icon icon={getSkillIcon(db)} className="w-4 h-4" />
                             {db}
                           </span>
                         ))}
@@ -167,7 +246,8 @@ const Skills: React.FC<SkillsProps> = ({ isDarkTheme, skillsData }) => {
                       }`}>DevOps & Cloud</h3>
                       <div className="flex flex-wrap gap-2">
                         {skillsData.technical.devops.map((tool, index) => (
-                          <span key={index} className="skill-tag text-sm">
+                          <span key={index} className="skill-tag text-sm flex items-center gap-1">
+                            <Icon icon={getSkillIcon(tool)} className="w-4 h-4" />
                             {tool}
                           </span>
                         ))}
