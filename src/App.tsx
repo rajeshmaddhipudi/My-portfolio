@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Github, Linkedin, Mail, Briefcase, GraduationCap, Heart, Code2, Brain, Database, Palette, Shield, Globe, Menu, X, ChevronDown, ChevronUp, Wrench, Terminal, Server, Cloud, Settings, Users, BookOpen, Sun, Moon } from 'lucide-react';
-import profilePic from './assets/profile.jpg';
+import profilePic from './assets/profile.png';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Skills from './components/Skills';
 import Resume from './components/Resume';
